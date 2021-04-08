@@ -2,9 +2,9 @@ import "./styles.css";
 // "https"
 
 export default function App() {
-  const url = "https://developer.mozilla.org/en-US/docs/Web/JavaScript";
+  // const url = "https://developer.mozilla.org/en-US/docs/Web/JavaScript";
 
-  const parsedURL = /^(\w+)\:\/\/([^\/]+)\/(.*)$/.exec(url);
+  // const parsedURL = /^(\w+)\:\/\/([^\/]+)\/(.*)$/.exec(url);
 
   // Note: Returned object of exec() contains an array of elements =
   // # of parenthesized substrings +1 = number of ()+1
@@ -26,9 +26,9 @@ export default function App() {
   // index[1]=1000.3454 = (\d+(\.\d+)?|\.\d+)
   // index[1] only include strings inside() without "-" sign
 
-  if (!parsedURL) {
-    return false;
-  }
+  // if (!parsedURL) {
+  //   return false;
+  // }
 
   // Metacharacter: ^ starting and $ ending position; () block of string inside() can be recalled
   // + 1 or more; * 0 or more preceding element; ? 0 or 1 preceding element (eg: colou?r matches both color and colour)
@@ -58,12 +58,23 @@ export default function App() {
   // index[1]=protocol="https", index[2]=fullhost="developer.mozilla.org",
   // index[3]=fullpath="en-US/docs/Web/JavaScript"]
 
-  const [, protocol, fullhost, fullpath] = parsedURL;
+  // const [, protocol, fullhost, fullpath] = parsedURL;
+
+  // //object o has a property p=40
+  // const o = {p:40, q: true}; 
+  // // destructuring or unpacking p is assigned to different variable foo
+  // const {p: foo, q: bar} = o;
+
+  // let id, is_verified; // if variables declare separately
+  // parentheses () is required for object literals to assign values to variables separately
+  // ({id,is_verified} = {id:40, is_verified:true});
+ // without (), {a,b} is considered a block NOT an object literal
+  const {a,b} = {a:1,b:2};
 
   return (
     <div>
-      <h1>{parsedURL}</h1>
-      <h1> {protocol} </h1>
+      <h1>{a}, {b}</h1>
+      <h1> my second headline</h1>
     </div>
   );
 }
