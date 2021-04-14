@@ -61,19 +61,40 @@ export default function App() {
   // const [, protocol, fullhost, fullpath] = parsedURL;
 
   // //object o has a property p=40
-  // const o = {p:40, q: true}; 
+  // const o = {p:40, q: true};
   // // destructuring or unpacking p is assigned to different variable foo
   // const {p: foo, q: bar} = o;
 
   // let id, is_verified; // if variables declare separately
   // parentheses () is required for object literals to assign values to variables separately
   // ({id,is_verified} = {id:40, is_verified:true});
- // without (), {a,b} is considered a block NOT an object literal
-  const {a,b} = {a:1,b:2};
+  // without (), {a,b} is considered a block NOT an object literal
+  // const { a: aa = 10, b = 20 } = { a: 3 };
+  // {unpacked object} = {object to be unpacked}
+  // assign default value 3 to variable a in case the unpacked value is undefined
+  //
+  // How to unpack fields from objectws passed as a function parameter
+  const user = {
+    id: 30,
+    displayName: "jdoe",
+    fullName: {
+      firstName: "John",
+      lastName: "Doe"
+    }
+  };
 
+  function userId({ id }) {
+    return id;
+  }
+
+  function whois({ displayName, fullName: { firstName: name } }) {
+    return `${displayName} is ${name}`;
+  }
   return (
     <div>
-      <h1>{a}, {b}</h1>
+      <h1>
+        User's id is {userId(user)}; user {whois(user)}
+      </h1>
       <h1> my second headline</h1>
     </div>
   );
