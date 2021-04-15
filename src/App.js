@@ -87,8 +87,11 @@ export default function App() {
     return id;
   }
 
-  function whois({ displayName, fullName: { firstName: name } }) {
-    return `${displayName} is ${name}`;
+  function whois({
+    displayName,
+    fullName: { firstName: fname, lastName: lname }
+  }) {
+    return `${displayName} is ${fname} ${lname}`;
   }
   return (
     <div>
