@@ -72,33 +72,49 @@ export default function App() {
   // const { a: aa = 10, b = 20 } = { a: 3 };
   // {unpacked object} = {object to be unpacked}
   // assign default value 3 to variable a in case the unpacked value is undefined
-  //
-  // How to unpack fields from objectws passed as a function parameter
-  const user = {
-    id: 30,
-    displayName: "jdoe",
-    fullName: {
-      firstName: "John",
-      lastName: "Doe"
-    }
-  };
 
-  function userId({ id }) {
-    return id;
+  ///////// how to pass object as a function parameter ///////
+  // function fName ({user_object}) {return ;} is unpacked into id, dispalyName fields
+  // const user = {
+  //   id: 30,
+  //   displayName: "jdoe",
+  //   fullName: {
+  //     firstName: "John",
+  //     lastName: "Doe"
+  //   }
+  // };
+
+  // function userId({ id }) {
+  //   return id;
+  // }
+
+  // function whois({
+  //   displayName,
+  //   fullName: { firstName:fname, lastName:lname }  // assigned new variable name
+  //   }) {
+  //   return `${displayName} is ${fname} ${lname}`;
+  // }
+
+  // set default values for function parameters
+  function drawChart({
+    size = "big",
+    coordinate = {
+      x: 0,
+      y: 0
+    },
+    radius = 26
+  } = {}) {
+    return { size, coordinate, radius };
   }
 
-  function whois({
-    displayName,
-    fullName: { firstName: fname, lastName: lname }
-  }) {
-    return `${displayName} is ${fname} ${lname}`;
-  }
+  // drawChart({
+  // coordinate:{x:18, y:20},
+  // radius:40});
+
   return (
     <div>
-      <h1>
-        User's id is {userId(user)}; user {whois(user)}
-      </h1>
-      <h1> my second headline</h1>
+      <h1> {drawChart()} </h1>
+      <h1> {} </h1>
     </div>
   );
 }
